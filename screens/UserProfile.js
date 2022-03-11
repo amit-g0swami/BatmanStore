@@ -1,18 +1,17 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native'
-import CartHeader from '../components/Cart/CartHeader'
 import { Divider } from 'react-native-elements'
-import CartOrders from '../components/Cart/CartOrders'
+import ProfileHeader from '../components/UserProfile/ProfileHeader'
+import ProfileInfo from '../components/UserProfile/ProfileInfo'
 
-export default function Cart({ navigation }) {
+export default function UserProfile({ navigation }) {
     return (
         <SafeAreaView style={styles.root}>
             <View style={{ marginBottom: 20 }}>
-                <CartHeader navigation={navigation} />
+                <ProfileHeader navigation={navigation} />
             </View>
             <Divider width={1} orientation="vertical" />
-            <CartOrders items={0} navigation={navigation} />
+            <ProfileInfo />
         </SafeAreaView>
     )
 }

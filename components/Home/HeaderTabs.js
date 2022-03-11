@@ -1,15 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { firebase } from "../../firebase";
-
-const handleSignout = async () => {
-    try {
-        await firebase.auth().signOut()
-        console.log('signed out')
-    } catch (error) {
-        console.log(error);
-    }
-};
 
 export default function HeaderTabs({ navigation }) {
     return (
@@ -33,7 +23,7 @@ export default function HeaderTabs({ navigation }) {
                         style={styles.icon}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={handleSignout}>
+                <TouchableOpacity onPress={() => navigation.navigate("UserProfile")}>
                     <Image
                         source={{
                             uri: "http://img.icons8.com/ios-filled/60/0000000/apple-settings.png",
@@ -71,7 +61,7 @@ const styles = StyleSheet.create({
         resizeMode: "contain",
     },
     unreadBadge: {
-        backgroundColor: "#ff3250",
+        backgroundColor: "gray",
         position: "absolute",
         left: 20,
         bottom: 18,
