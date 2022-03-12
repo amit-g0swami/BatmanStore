@@ -1,36 +1,6 @@
 import React from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
-
-const items = [
-    {
-        image: require('../../assets/Images/wheat.png'),
-        text: 'Wheat',
-    },
-    {
-        image: require('../../assets/Images/corn.png'),
-        text: 'Pop Corn',
-    },
-    {
-        image: require('../../assets/Images/rice.png'),
-        text: 'Rice',
-    },
-    {
-        image: require('../../assets/Images/spices.png'),
-        text: 'Spices',
-    },
-    {
-        image: require('../../assets/Images/pulses.png'),
-        text: 'Pulses',
-    },
-    {
-        image: require('../../assets/Images/mustardoil.png'),
-        text: 'Mustard Oil',
-    },
-    {
-        image: require('../../assets/Images/flours.png'),
-        text: 'Flours',
-    },
-];
+import { items } from "../../assets/Data/categoriesData";
 
 export default function Categories() {
     return (

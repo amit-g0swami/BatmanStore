@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Image } from "react-native";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import LoginForm from "../components/LoginScreen/LoginForm";
 
 const LoginScreen = ({ navigation }) => {

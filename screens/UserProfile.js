@@ -1,17 +1,28 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, SafeAreaView, StyleSheet } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { Divider } from 'react-native-elements'
 import ProfileHeader from '../components/UserProfile/ProfileHeader'
 import ProfileInfo from '../components/UserProfile/ProfileInfo'
+import { db, firebase } from "../firebase";
 
 export default function UserProfile({ navigation }) {
+    const [userData, setUserData] = useState([]);
+    const email = firebase.auth().currentUser.email;
+
+    useEffect(() => {
+        db.collection("users").doc(email).get().then(doc => {
+            const newData = doc.data();
+            setUserData(newData);
+            console.log(userData);
+        });
+    }, []);
     return (
         <SafeAreaView style={styles.root}>
             <View style={{ marginBottom: 20 }}>
                 <ProfileHeader navigation={navigation} />
             </View>
             <Divider width={1} orientation="vertical" />
-            <ProfileInfo />
+            <ProfileInfo userdata={userData} />
         </SafeAreaView>
     )
 }

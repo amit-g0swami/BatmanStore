@@ -23,7 +23,7 @@ export default function HeaderTabs({ navigation }) {
                         style={styles.icon}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("UserProfile")}>
+                <TouchableOpacity onPress={() => navigation.navigate("UserProfile")} >
                     <Image
                         source={{
                             uri: "http://img.icons8.com/ios-filled/60/0000000/apple-settings.png",

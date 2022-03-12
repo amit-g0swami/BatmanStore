@@ -27,8 +27,8 @@ export default function CartOrders({ items, navigation }) {
 }
 const styles = StyleSheet.create({
     icon: {
-        width: 80,
-        height: 80,
+        width: 70,
+        height: 70,
         marginLeft: 10,
         resizeMode: "contain",
     },
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: "400",
-        fontSize: 20, color: "black",
+        fontSize: 18, color: "black",
     },
     button: {
         backgroundColor: 'gray',

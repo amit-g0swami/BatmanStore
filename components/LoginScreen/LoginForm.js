@@ -7,6 +7,7 @@ import CustomButton from "./CustomButton";
 import { firebase } from "../../firebase";
 
 const LoginForm = ({ navigation }) => {
+
     const LoginFormSchema = Yup.object().shape({
         email: Yup.string().email().required("An email is required"),
         password: Yup.string()

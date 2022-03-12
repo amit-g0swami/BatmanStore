@@ -21,7 +21,7 @@ export default function MenuItems({ prices }) {
                     <View key={index}>
                         <View key={index} style={styles.menuItem}>
                             <BouncyCheckbox
-                                fillColor='green'
+                                fillColor='gray'
                                 iconStyle={{ borderColor: 'lightgray', borderRadius: 0 }}
                             />
                             <FoodInfo food={food} />
