@@ -12,6 +12,14 @@ export default function HeaderTabs({ navigation }) {
                 <Text>Store</Text>
             </TouchableOpacity>
             <View style={styles.iconContainer}>
+                <TouchableOpacity onPress={() => navigation.push("ContactUs")}>
+                    <Image
+                        source={{
+                            uri: "https://img.icons8.com/ios/100/000000/info--v1.png",
+                        }}
+                        style={styles.icon}
+                    />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.push("Cart")}>
                     <View style={styles.unreadBadge}>
                         <Text style={styles.unreadBadgeText}>0</Text>

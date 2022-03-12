@@ -13,8 +13,8 @@ export default function ProfileInfo({ userdata }) {
                     /> : null
                 }
                 <View>
-                    <Text style={{ color: "black", fontWeight: "400", fontSize: 22 }}>{userdata.username}</Text>
-                    <Text style={{ color: "black", fontWeight: "400", fontSize: 16 }}>{userdata.email}</Text>
+                    <Text style={{ color: "black", fontWeight: "400", fontSize: 28 }}>{userdata.username}</Text>
+                    <Text style={{ color: "black", fontWeight: "400", fontSize: 14 }}>{userdata.email}</Text>
                 </View>
             </View>
         </View>
@@ -23,8 +23,8 @@ export default function ProfileInfo({ userdata }) {
 
 const styles = StyleSheet.create({
     story: {
-        width: 60,
-        height: 60,
+        width: 95,
+        height: 95,
         margin: 10,
         resizeMode: "contain",
         borderRadius: 50,

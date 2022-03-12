@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import React from 'react'
+import React, { useState } from 'react'
 import MaterialCommuityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { localRestaurants } from '../../assets/Data/itemsData';
 
@@ -32,11 +32,13 @@ export default function ShoppingItem({ navigation }) {
     );
 }
 const RestaurantImage = ({ image }) => {
+    const [changeIcon, setChangeIcon] = useState(false);
+    console.log(changeIcon)
     return (
         <>
             <Image source={{ uri: image }} style={{ width: '100%', height: 180 }} />
-            <TouchableOpacity style={{ position: 'absolute', top: 20, right: 20 }}>
-                <MaterialCommuityIcons name='heart-outline' size={24} color='white' />
+            <TouchableOpacity style={{ position: 'absolute', top: 0, right: 0 }} onPress={() => setChangeIcon(!changeIcon)}>
+                {changeIcon == true ? <MaterialCommuityIcons name='heart' size={28} color='red' /> : <MaterialCommuityIcons name='heart-outline' size={28} color='gray' />}
             </TouchableOpacity>
         </>
     );

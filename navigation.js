@@ -7,6 +7,7 @@ import SignupScreen from "./screens/SignupScreen";
 import LoginScreen from "./screens/LoginScreen";
 import ItemDetail from "./screens/ItemDetail";
 import UserProfile from "./screens/UserProfile";
+import ContactUs from "./screens/ContactUs";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export const SignedInStack = () => (
             <Stack.Screen name="Cart" component={Cart} />
             <Stack.Screen name="ItemDetail" component={ItemDetail} />
             <Stack.Screen name="UserProfile" component={UserProfile} />
+            <Stack.Screen name="ContactUs" component={ContactUs} />
         </Stack.Navigator>
     </NavigationContainer>
 );
