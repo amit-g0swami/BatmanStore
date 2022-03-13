@@ -12,7 +12,16 @@ export default function ProfileInfo({ userdata }) {
     }, []);
 
     const UserData = isLoading == true ?
-        <LoadingScreen />
+        <View style={{
+            position: "absolute",
+            opacity: 0.6,
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            width: "100%",
+        }}>
+            <LoadingScreen />
+        </View>
         : <View style={{ marginBottom: 10 }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 {userdata.profile_picture ?

@@ -1,20 +1,13 @@
-import { View, StyleSheet, ActivityIndicator, Text } from 'react-native'
 import React from 'react'
+import LottieView from "lottie-react-native";
 
 export default function LoadingScreen() {
     return (
-        <View style={styles.loader}>
-            <ActivityIndicator size="large" color="gray" />
-        </View>
+        <LottieView
+            style={{ height: 200 }}
+            source={require("../../assets/animations/scanner.json")}
+            autoPlay
+            speed={3}
+        />
     )
 }
-const styles = StyleSheet.create({
-    loader: {
-        height: "100%",
-        width: "100%",
-        justifyContent: "center",
-        alignSelf: "center",
-        alignContent: "center",
-        alignItems: "center",
-    },
-});
