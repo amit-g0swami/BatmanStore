@@ -33,7 +33,6 @@ export default function ShoppingItem({ navigation }) {
 }
 const RestaurantImage = ({ image }) => {
     const [changeIcon, setChangeIcon] = useState(false);
-    console.log(changeIcon)
     return (
         <>
             <Image source={{ uri: image }} style={{ width: '100%', height: 180 }} />

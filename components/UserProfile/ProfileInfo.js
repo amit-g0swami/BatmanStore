@@ -1,9 +1,19 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import LoadingScreen from "../Loader/LoadingScreen";
 
 export default function ProfileInfo({ userdata }) {
-    return (
-        <View style={{ marginBottom: 10 }}>
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+    }, []);
+
+    const UserData = isLoading == true ?
+        <LoadingScreen />
+        : <View style={{ marginBottom: 10 }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 {userdata.profile_picture ?
                     <Image source={{
@@ -17,7 +27,12 @@ export default function ProfileInfo({ userdata }) {
                     <Text style={{ color: "black", fontWeight: "400", fontSize: 14 }}>{userdata.email}</Text>
                 </View>
             </View>
-        </View>
+        </View>;
+
+    return (
+        <>
+            {UserData}
+        </>
     )
 }
 

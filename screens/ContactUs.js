@@ -19,12 +19,11 @@ export default function ContactUs({ navigation }) {
             </View>
             <Divider width={1} orientation="vertical" />
             <View style={styles.nodata}>
-                {contactData.map((data) => <>
-                    <View style={styles.assign}>
-                        <Image source={{ uri: `${data.image}` }} style={styles.icon} />
-                        <Text style={styles.text}>{data.text}</Text>
-                    </View>
-                </>)}
+                {contactData.map((data, index) => <View style={styles.assign} key={index}>
+                    <Image source={{ uri: `${data.image}` }} style={styles.icon} />
+                    <Text style={styles.text}>{data.text}</Text>
+                </View>
+                )}
             </View>
         </SafeAreaView>
     )

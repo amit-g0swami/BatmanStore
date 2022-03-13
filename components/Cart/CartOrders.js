@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-n
 import React from 'react'
 
 export default function CartOrders({ items, navigation }) {
-    const NoItems = items == 0 ? (
+    const NoItems = items == 0 ?
         <View style={styles.nodata}>
             <Image
                 source={{
@@ -17,7 +17,7 @@ export default function CartOrders({ items, navigation }) {
                 </View>
             </TouchableOpacity>
         </View>
-    ) : null;
+        : null;
 
     return (
         <>
