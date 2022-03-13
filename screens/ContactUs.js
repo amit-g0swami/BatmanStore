@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontWeight: "400",
-        fontSize: 20,
+        fontSize: 16,
         color: "black",
         marginLeft: 10,
         marginRight: 10

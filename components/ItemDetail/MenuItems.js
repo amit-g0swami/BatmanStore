@@ -9,10 +9,31 @@ import {
 } from 'react-native';
 import { Divider } from 'react-native-elements';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const deviceHeight = Dimensions.get('window').height;
 
-export default function MenuItems({ prices }) {
+export default function MenuItems({ prices, restaurantName, hideCheckbox }) {
+    const dispatch = useDispatch();
+
+    const selectItem = (item, checkboxValue) =>
+        dispatch({
+            type: "ADD_TO_CART",
+            payload: {
+                ...item,
+                restaurantName: restaurantName,
+                checkboxValue: checkboxValue,
+            },
+        });
+
+    const cartItems = useSelector(
+        (state) => state.cartReducer.selectedItems.items
+    );
+
+    const isFoodInCart = (food, cartItems) =>
+        Boolean(cartItems.find((item) => item.title === food.title));
+
     return (
         <View style={{ height: deviceHeight - 281.8 }}>
             <ScrollView style={{ flexGrow: 1 }} showsVerticalScrollIndicatora={true}
@@ -20,10 +41,16 @@ export default function MenuItems({ prices }) {
                 {prices.map((food, index) => (
                     <View key={index}>
                         <View key={index} style={styles.menuItem}>
-                            <BouncyCheckbox
-                                fillColor='gray'
-                                iconStyle={{ borderColor: 'lightgray', borderRadius: 0 }}
-                            />
+                            {hideCheckbox ? (
+                                <></>
+                            ) : (
+                                <BouncyCheckbox
+                                    iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+                                    fillColor="gray"
+                                    isChecked={isFoodInCart(food, cartItems)}
+                                    onPress={(checkboxValue) => selectItem(food, checkboxValue)}
+                                />
+                            )}
                             <FoodInfo food={food} />
                             <FoodCount />
                         </View>

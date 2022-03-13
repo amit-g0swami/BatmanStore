@@ -9,7 +9,7 @@ export default function HeaderTabs({ navigation }) {
                     style={styles.logo}
                     source={require("../../assets/Images/logo.png")}
                 />
-                <Text>Store</Text>
+                <Text>AttaChakki</Text>
             </TouchableOpacity>
             <View style={styles.iconContainer}>
                 <TouchableOpacity onPress={() => navigation.push("ContactUs")}>

@@ -16,6 +16,7 @@ export default function UserProfile({ navigation }) {
             console.log(userData);
         });
     }, []);
+
     return (
         <SafeAreaView style={styles.root}>
             <View style={{ marginBottom: 20 }}>

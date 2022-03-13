@@ -6,6 +6,7 @@ import Categories from '../components/Home/Categories';
 import ShoppingItem from '../components/Home/ShoppingItem';
 
 export default function Home({ navigation }) {
+
     return (
         <SafeAreaView style={[styles.androidSafeArea]}>
             <View style={styles.header}>

@@ -8,7 +8,10 @@ import LoginScreen from "./screens/LoginScreen";
 import ItemDetail from "./screens/ItemDetail";
 import UserProfile from "./screens/UserProfile";
 import ContactUs from "./screens/ContactUs";
+import { Provider as ReduxProvider } from "react-redux";
+import configureStore from "./redux/store";
 
+const store = configureStore();
 const Stack = createStackNavigator();
 
 const screenOptions = {
@@ -16,18 +19,20 @@ const screenOptions = {
 };
 
 export const SignedInStack = () => (
-    <NavigationContainer>
-        <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={screenOptions}
-        >
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Cart" component={Cart} />
-            <Stack.Screen name="ItemDetail" component={ItemDetail} />
-            <Stack.Screen name="UserProfile" component={UserProfile} />
-            <Stack.Screen name="ContactUs" component={ContactUs} />
-        </Stack.Navigator>
-    </NavigationContainer>
+    <ReduxProvider store={store}>
+        <NavigationContainer>
+            <Stack.Navigator
+                initialRouteName="Home"
+                screenOptions={screenOptions}
+            >
+                <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Cart" component={Cart} />
+                <Stack.Screen name="ItemDetail" component={ItemDetail} />
+                <Stack.Screen name="UserProfile" component={UserProfile} />
+                <Stack.Screen name="ContactUs" component={ContactUs} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    </ReduxProvider>
 );
 
 export const SignedOutStack = () => (

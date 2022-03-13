@@ -10,7 +10,7 @@ export default function ItemDetail({ navigation, route }) {
         <View style={{ flex: 1 }}>
             <About route={route} />
             <Divider width={1.8} style={{ height: 1.8 }} />
-            <MenuItems prices={route.params.prices} />
+            <MenuItems prices={route.params.prices} restaurantName={route.params.name} />
             <ViewCart navigation={navigation} itemName={route.params.name} style={{ position: "absolute", zIndex: 999 }} />
         </View>
     )
