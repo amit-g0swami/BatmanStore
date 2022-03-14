@@ -20,7 +20,7 @@ export default function Home({ navigation }) {
     return (
         <SafeAreaView style={[styles.androidSafeArea]}>
             <View style={styles.header}>
-                <HeaderTabs navigation={navigation} shoppingData={cartData} />
+                <HeaderTabs navigation={navigation} cartData={cartData} />
             </View>
             <Search />
             <ScrollView

@@ -1,7 +1,19 @@
-import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { db, firebase } from "../../firebase";
+import CartItems from "./CartItems";
 
-export default function CartOrders({ navigation, itemsCount, shoppingData }) {
+export default function CartOrders({ navigation, itemsCount }) {
+    const [cartData, setCartData] = useState();
+    const email = firebase.auth().currentUser.email;
+
+    useEffect(() => {
+        db.collection("users").doc(email).collection("orders")?.onSnapshot((snapshot) => setCartData(snapshot.docs.map((doc) => ({
+            id: doc.id,
+            itemsDetails: doc.data(),
+        }))))
+    }, []);
+
     const NoItems = itemsCount == 0 ?
         <View style={styles.nodata}>
             <Image
@@ -17,9 +29,17 @@ export default function CartOrders({ navigation, itemsCount, shoppingData }) {
                 </View>
             </TouchableOpacity>
         </View> :
-        <View>
-            <Text>data</Text>
-        </View>;
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{
+                paddingHorizontal: 10,
+            }}
+        >
+            {cartData?.map((item, index) => (
+                <CartItems key={index} item={item} />
+            ))}
+        </ScrollView>
+        ;
 
     return (
         <>

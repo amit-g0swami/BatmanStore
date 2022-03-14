@@ -27,7 +27,7 @@ export default function ProfileInfo({ userdata }) {
                 {userdata.profile_picture ?
                     <Image source={{
                         // uri: `${userdata.profile_picture}`,
-                        uri: "https://img.icons8.com/doodle/96/000000/user.png",
+                        uri: "https://img.icons8.com/carbon-copy/100/000000/user.png",
                     }}
                         style={styles.story}
                     /> : null
