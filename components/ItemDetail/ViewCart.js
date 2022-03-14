@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, Modal, TouchableOpacity, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
-import LoadingScreen from "../Loader/LoadingScreen";
 import OrderItem from "./OrderItem";
 import { firebase } from "../../firebase";
+import LottieView from "lottie-react-native";
 
 export default function ViewCart({ navigation }) {
     const email = firebase.auth().currentUser.email;
@@ -33,7 +33,7 @@ export default function ViewCart({ navigation }) {
                 setTimeout(() => {
                     setLoading(false);
                     navigation.navigate("Home");
-                }, 2000);
+                }, 2500);
             });
     }
 
@@ -154,7 +154,13 @@ export default function ViewCart({ navigation }) {
                         width: "100%",
                     }}
                 >
-                    <LoadingScreen />
+                    <LottieView
+                        style={{ height: 200 }}
+                        source={require("../../assets/animations/check-mark.json")}
+                        autoPlay
+                        speed={0.5}
+                        loop={false}
+                    />
                 </View>
             ) : (
                 <></>

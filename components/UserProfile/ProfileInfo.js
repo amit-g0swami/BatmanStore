@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import LoadingScreen from "../Loader/LoadingScreen";
+import LottieView from "lottie-react-native";
 
 export default function ProfileInfo({ userdata }) {
     const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +20,12 @@ export default function ProfileInfo({ userdata }) {
             height: "100%",
             width: "100%",
         }}>
-            <LoadingScreen />
+            <LottieView
+                style={{ height: 200 }}
+                source={require("../../assets/animations/scanner.json")}
+                autoPlay
+                speed={3}
+            />
         </View>
         : <View style={{ marginBottom: 10 }}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
