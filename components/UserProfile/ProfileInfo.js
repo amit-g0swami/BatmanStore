@@ -26,7 +26,8 @@ export default function ProfileInfo({ userdata }) {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 {userdata.profile_picture ?
                     <Image source={{
-                        uri: `${userdata.profile_picture}`,
+                        // uri: `${userdata.profile_picture}`,
+                        uri: "https://img.icons8.com/doodle/96/000000/user.png",
                     }}
                         style={styles.story}
                     /> : null

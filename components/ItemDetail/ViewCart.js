@@ -3,8 +3,10 @@ import { View, Text, Modal, TouchableOpacity, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import LoadingScreen from "../Loader/LoadingScreen";
 import OrderItem from "./OrderItem";
+import { firebase } from "../../firebase";
 
-export default function ViewCart() {
+export default function ViewCart({ navigation }) {
+    const email = firebase.auth().currentUser.email;
     const [loading, setLoading] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -20,9 +22,19 @@ export default function ViewCart() {
     });
     const addOrderToFireBase = () => {
         setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-        }, 2500);
+        const db = firebase.firestore();
+        db.collection("users").doc(email).collection("orders")
+            .add({
+                items: items,
+                // restaurantName: restaurantName,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+            .then(() => {
+                setTimeout(() => {
+                    setLoading(false);
+                    navigation.navigate("Home");
+                }, 2000);
+            });
     }
 
     const checkoutModalContent = () => {

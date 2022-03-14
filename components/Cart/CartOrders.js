@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function CartOrders({ items, navigation }) {
-    const NoItems = items == 0 ?
+export default function CartOrders({ navigation, itemsCount, shoppingData }) {
+    const NoItems = itemsCount == 0 ?
         <View style={styles.nodata}>
             <Image
                 source={{
@@ -16,8 +16,10 @@ export default function CartOrders({ items, navigation }) {
                     <Text style={styles.buttontext}>Shop Now</Text>
                 </View>
             </TouchableOpacity>
-        </View>
-        : null;
+        </View> :
+        <View>
+            <Text>data</Text>
+        </View>;
 
     return (
         <>

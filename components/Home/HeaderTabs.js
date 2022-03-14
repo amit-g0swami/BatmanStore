@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
-export default function HeaderTabs({ navigation }) {
+export default function HeaderTabs({ navigation, shoppingData }) {
+    const itemsCount = shoppingData ? Object.keys(shoppingData).length : 0;
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.logoContainer}>
@@ -20,9 +21,9 @@ export default function HeaderTabs({ navigation }) {
                         style={styles.icon}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.push("Cart")}>
+                <TouchableOpacity onPress={() => navigation.push("Cart")} shoppingData={shoppingData} itemsCount={itemsCount}>
                     <View style={styles.unreadBadge}>
-                        <Text style={styles.unreadBadgeText}>0</Text>
+                        <Text style={styles.unreadBadgeText}>{itemsCount}</Text>
                     </View>
                     <Image
                         source={{
