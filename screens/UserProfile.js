@@ -13,7 +13,6 @@ export default function UserProfile({ navigation }) {
         db.collection("users").doc(email).get().then(doc => {
             const newData = doc.data();
             setUserData(newData);
-            console.log(userData);
         });
     }, []);
 

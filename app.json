@@ -1,0 +1,33 @@
+{
+    "expo": {
+        "name": "Gunvati",
+        "slug": "Gunvati-Store",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/Images/logo.png",
+        "splash": {
+            "image": "./assets/Images/logo.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#eee"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/Images/logo.png",
+                "backgroundColor": "#eee"
+            },
+            "package": "com.Shivayattachakkiandoilkolhu.GunvatiStore"
+        },
+        "web": {
+            "favicon": "./assets/Images/logo.png"
+        }
+    }
+}

@@ -10,7 +10,7 @@ export default function HeaderTabs({ navigation, cartData }) {
                     style={styles.logo}
                     source={require("../../assets/Images/logo.png")}
                 />
-                <Text>AttaChakki</Text>
+                <Text>Shivay-atta-chakki</Text>
             </TouchableOpacity>
             <View style={styles.iconContainer}>
                 <TouchableOpacity onPress={() => navigation.push("ContactUs")}>

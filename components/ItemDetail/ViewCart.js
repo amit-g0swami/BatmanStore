@@ -27,6 +27,7 @@ export default function ViewCart({ navigation }) {
             .add({
                 items: items,
                 // restaurantName: restaurantName,
+                total: total,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             })
             .then(() => {

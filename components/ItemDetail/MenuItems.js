@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 
 const deviceHeight = Dimensions.get('window').height;
 
-export default function MenuItems({ prices, restaurantName, hideCheckbox }) {
+export default function MenuItems({ prices, restaurantName }) {
     const dispatch = useDispatch();
 
     const selectItem = (item, checkboxValue) =>
@@ -41,16 +41,12 @@ export default function MenuItems({ prices, restaurantName, hideCheckbox }) {
                 {prices.map((food, index) => (
                     <View key={index}>
                         <View key={index} style={styles.menuItem}>
-                            {hideCheckbox ? (
-                                <></>
-                            ) : (
-                                <BouncyCheckbox
-                                    iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
-                                    fillColor="gray"
-                                    isChecked={isFoodInCart(food, cartItems)}
-                                    onPress={(checkboxValue) => selectItem(food, checkboxValue)}
-                                />
-                            )}
+                            <BouncyCheckbox
+                                iconStyle={{ borderColor: "lightgray", borderRadius: 0 }}
+                                fillColor="gray"
+                                isChecked={isFoodInCart(food, cartItems)}
+                                onPress={(checkboxValue) => selectItem(food, checkboxValue)}
+                            />
                             <FoodInfo food={food} />
                             <FoodCount />
                         </View>

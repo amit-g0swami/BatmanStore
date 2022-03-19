@@ -35,7 +35,7 @@ const RestaurantImage = ({ image }) => {
     const [changeIcon, setChangeIcon] = useState(false);
     return (
         <>
-            <Image source={{ uri: image }} style={{ width: '100%', height: 180 }} />
+            <Image source={{ uri: image }} style={{ width: '100%', height: 180, justifyContent: 'center' }} />
             <TouchableOpacity style={{ position: 'absolute', top: 0, right: 0 }} onPress={() => setChangeIcon(!changeIcon)}>
                 {changeIcon == true ? <MaterialCommuityIcons name='heart' size={28} color='red' /> : <MaterialCommuityIcons name='heart-outline' size={28} color='gray' />}
             </TouchableOpacity>
@@ -55,7 +55,7 @@ const RestaurantInfo = ({ name, rating, price }) => {
         >
             <View>
                 <Text style={{ fontSize: 15, fontWeight: 'bold' }}>{name}</Text>
-                <Text style={{ fontSize: 13, color: 'gray' }}>{price} ₹/kg</Text>
+                <Text style={{ fontSize: 13, color: 'gray' }}>{price}</Text>
             </View>
             <View
                 style={{

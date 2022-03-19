@@ -9,7 +9,6 @@ import { db, firebase } from "../firebase";
 export default function Home({ navigation }) {
     const [cartData, setCartData] = useState();
     const email = firebase.auth().currentUser.email;
-
     useEffect(() => {
         db.collection("users").doc(email).collection("orders")?.onSnapshot((snapshot) => setCartData(snapshot.docs.map((doc) => ({
             id: doc.id,
